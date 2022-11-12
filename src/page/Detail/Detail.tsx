@@ -7,6 +7,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useReducer, useState } from 'react';
 import { pokemonReducer } from '../../reducers/pokemonReducer';
 import { dataDummy } from '../../dummy';
+import { RenderModal } from '../../components/Modal/Modal';
+import { ModalActivity } from '../../components/Modal/ModalActivity';
 
 export interface DetailPokemon{
 
@@ -17,6 +19,7 @@ const Detail: React.FC = () => {
     const {name} = useParams();
     const [pokemon, dispatch] = useReducer(pokemonReducer, dataDummy);
     const [detail, setDetailPokemon] = useState<any>();
+    const [showModal, setShowModal] = useState(false)
 
     useEffect(() => {
       setDetailPokemon(pokemon.find((item: any) => item.name === name));
@@ -28,7 +31,7 @@ const Detail: React.FC = () => {
         <div className={styles['container-detail']}>
             <div className={styles.header}>
                 <div className={styles.previous} onClick={() => navigate('/')}><img src="/assets/icons/previous.svg" alt='Back to' /> Stok Pokemon</div>
-                <button type='button'>Update Stock</button>
+                <button type='button' onClick={() => setShowModal(true)}>Update Stock</button>
             </div>
             <div className={styles.pika}>
                 <h1 style={{textTransform: 'capitalize'}}>{name}</h1>
@@ -64,6 +67,9 @@ const Detail: React.FC = () => {
                     ))}
                 </div>
             </div>
+        <RenderModal>
+        {showModal && <ModalActivity onClose={setShowModal}/>}
+        </RenderModal>
         </div>
     )
 }

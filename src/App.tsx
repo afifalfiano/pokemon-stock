@@ -6,6 +6,7 @@ import { pokemonReducer } from './reducers/pokemonReducer';
 import { dataDummy } from './dummy';
 const Home = lazy(() => import('./page/Home/Home'));
 const Detail = lazy(() => import('./page/Detail/Detail'));
+const Confirmation = lazy(() => import('./page/Confirmation/Confirmation'));
 
 function App() {
   const [pokemon, dispatch] = useReducer(pokemonReducer, dataDummy);
@@ -17,6 +18,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Home pokemon={pokemon} />} />
       <Route path="/detail/:name" element={<Detail/>} />
+      <Route path="/detail/:name/confirmation" element={<Confirmation/>} />
       </Routes>
       </Suspense>
       </React.Fragment>

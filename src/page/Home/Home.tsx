@@ -3,6 +3,8 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { RenderModal } from '../../components/Modal/Modal';
+import { ModalActivity } from '../../components/Modal/ModalActivity';
 import styles from './Home.module.css';
 
 
@@ -40,7 +42,6 @@ const Home: React.FC<any> = ({pokemon}) => {
             throw new Error("Failed Get Data");
         }
     }, [search])
-
 
     return (
         <div className={styles.container}>
