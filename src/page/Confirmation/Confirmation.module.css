@@ -3,6 +3,12 @@
     margin: 4rem 20rem;
 }
 
+@media screen and (max-width: 1200px) {
+  .container {
+    margin: 2rem;
+  }  
+}
+
 .container h1 {
     font-size: 2.5rem;
 }

@@ -72,13 +72,13 @@ export const ModalActivity = (props: ModalProps) => {
                         <div>
                             <div className={styles['table-body']}>
                                 <div><strong>Pcs</strong></div>
-                                <div>1 x <input type="number" name="" id="" ref={pcs} onChange={inputPcsHandler} value={props.title === 'edit' && pcs.current} /></div>
-                                <div> = {totalPcs}</div>
+                                <div>1 x <input type="number" name="" id="" ref={pcs} onChange={inputPcsHandler} value={pcs.current} /> = </div>
+                                <div>{totalPcs}</div>
                             </div>
                             <div className={styles['table-body']}>
                                 <div><strong>Lusin</strong></div>
-                                <div>12 x <input type="number" name="" id="" ref={lusin} onChange={inputLusinHandler} value={props.title === 'edit' && lusin.current} /></div>
-                                <div> = {totalLusin}</div>
+                                <div>12 x <input type="number" name="" id="" ref={lusin} onChange={inputLusinHandler} value={lusin.current} /> = </div>
+                                <div>{totalLusin}</div>
                             </div>
                             <div className={styles['table-body']}>
                                 <div><strong>Total stok</strong> (dalam pcs)</div>
