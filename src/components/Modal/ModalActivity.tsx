@@ -1,21 +1,34 @@
-import { useRef, useState } from "react"
-import { useDispatch } from "react-redux";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useRef, useState } from "react"
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { newStock, updateOne } from "../../store/pokemon/pokemonSlice";
+import { newStock, selectNewStock } from "../../store/pokemon/pokemonSlice";
 import styles from "./ModalActivity.module.css"
 
 interface ModalProps {
     onClose: (showModal: boolean) => void,
     detail: (any),
-    // dataInput: (any),
+    title: string,
 }
 
 export const ModalActivity = (props: ModalProps) =>{
-    const pcs = useRef<any>(0);
-    const lusin = useRef<any>(0);
+    const edit = useSelector(selectNewStock);
+    const pcs = useRef<any>();
+    const lusin = useRef<any>();
     const [totalPcs, setTotalPcs] = useState(0);
     const [totalLusin, setTotalLusin] = useState(0);
     const navigate = useNavigate();
+    
+    useEffect(() => {
+        if (props.title === 'edit') {
+            pcs.current = edit.totalPcs;
+            lusin.current = edit.totalLusin;
+            setTotalPcs(edit.totalPcs);
+            setTotalLusin(edit.totalLusin);
+        }
+    }, [])
+    
+
 
     const inputPcsHandler = (e: any) => {
         pcs.current = e.target.value;
@@ -59,12 +72,12 @@ return(
                 <div>
                     <div className={styles['table-body']}>
                         <div><strong>Pcs</strong></div>
-                        <div>1 x <input type="number" name="" id="" ref={pcs} onChange={inputPcsHandler}/></div>
+                        <div>1 x <input type="number" name="" id="" ref={pcs} onChange={inputPcsHandler} value={props.title === 'edit' && pcs.current} /></div>
                         <div> = {totalPcs}</div>
                     </div>
                     <div className={styles['table-body']}>
                         <div><strong>Lusin</strong></div>
-                        <div>12 x <input type="number" name="" id="" ref={lusin} onChange={inputLusinHandler}/></div>
+                        <div>12 x <input type="number" name="" id="" ref={lusin} onChange={inputLusinHandler} value={props.title === 'edit' &&  lusin.current}/></div>
                         <div> = {totalLusin}</div>
                     </div>
                     <div className={styles['table-body']}>

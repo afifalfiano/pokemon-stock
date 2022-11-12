@@ -1,10 +1,10 @@
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { RenderModal } from '../../components/Modal/Modal';
 import { ModalActivity } from '../../components/Modal/ModalActivity';
-import { newStock, selectNewStock, updateOne } from '../../store/pokemon/pokemonSlice';
+import { newStock, selectAllPokemon, selectNewStock, updateOne } from '../../store/pokemon/pokemonSlice';
 import styles from './Confirmation.module.css';
 const Confirmation = () => {
     const navigate = useNavigate();
@@ -13,7 +13,11 @@ const Confirmation = () => {
     const dispatch = useDispatch();
     const notes = useRef<any>('');
 
-    console.log(data);
+    const [detail, setDetailPokemon] = useState<any>();
+    const pokemon = useSelector(selectAllPokemon);
+    useEffect(() => {
+      setDetailPokemon(pokemon.find((item: any) => item.name === data.name));
+    }, [detail])
 
     const handleNotes = (e: any) => {
         notes.current = e.target.value;
@@ -92,7 +96,7 @@ const Confirmation = () => {
       </div>
 
       <RenderModal>
-        {showModal && <ModalActivity onClose={setShowModal} detail={null} />}
+        {showModal && <ModalActivity onClose={setShowModal} detail={detail} title="edit" />}
         </RenderModal>
     </div>
     )

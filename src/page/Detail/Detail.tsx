@@ -17,12 +17,11 @@ export interface DetailPokemon{
 const Detail: React.FC = () => {
     const navigate = useNavigate();
     const {name} = useParams();
-    const pokemon = useSelector(selectAllPokemon);
-    const [detail, setDetailPokemon] = useState<any>();
     const [showModal, setShowModal] = useState(false)
+    const [detail, setDetailPokemon] = useState<any>();
+    const pokemon = useSelector(selectAllPokemon);
     useEffect(() => {
       setDetailPokemon(pokemon.find((item: any) => item.name === name));
-      console.log(detail, 'd');
     }, [detail])
     
 
@@ -67,7 +66,7 @@ const Detail: React.FC = () => {
                 </div>
             </div>
         <RenderModal>
-        {showModal && <ModalActivity onClose={setShowModal} detail={detail} />}
+        {showModal && <ModalActivity onClose={setShowModal} detail={detail} title="add" />}
         </RenderModal>
         </div>
     )
