@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 import { useSelector } from 'react-redux';
 import { selectAllPokemon } from './store/pokemon/pokemonSlice';
-const Home = lazy(() => import('./page/Home/Home'));
+import Home from './page/Home/Home';
 const Detail = lazy(() => import('./page/Detail/Detail'));
 const Confirmation = lazy(() => import('./page/Confirmation/Confirmation'));
 
