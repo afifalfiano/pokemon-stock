@@ -32,7 +32,7 @@ const Confirmation = () => {
             name: data.name,
             stok: data.totalStok + data.stokSebelum,
             history: {
-                "waktu": new Date().toLocaleString('id-ID', { hour12: false }),
+                "waktu": new Date(),
                 "kegiatan": data.kegiatan,
                 "catatan": notes.current,
                 "jumlah": data.totalStok,

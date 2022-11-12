@@ -1,15 +1,29 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectAllPokemon } from './store/pokemon/pokemonSlice';
 import Home from './page/Home/Home';
+import { setDimensions } from './store/screen/screenSlice';
 const Detail = lazy(() => import('./page/Detail/Detail'));
 const Confirmation = lazy(() => import('./page/Confirmation/Confirmation'));
 
 function App() {
   const pokemon= useSelector(selectAllPokemon);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    updateDimensions();
+    window.addEventListener("resize", updateDimensions);
+    return () => 
+       window.removeEventListener("resize",updateDimensions);
+  }, [])
+
+  const updateDimensions = () => {
+    const width = window.innerWidth
+    dispatch(setDimensions(width));
+  }
   
   return (
     <Router>

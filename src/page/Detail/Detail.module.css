@@ -7,12 +7,46 @@
 @media screen and (max-width: 1200px) {
     .container-detail {
       margin: 2rem;
-    }  
+    } 
+
+    .table-body {
+        height: auto !important;
+    }
+
+    .table-body-mobile {
+        margin: 5px 0;
+    }
+
+    .table-body-mobile p {
+        margin: 5px 0;
+    }
+
+    .table-body-mobile .activity {
+        color: var(--primary);
+        font-size: 16px;
+        font-weight: bold;
+    }
   }
 
 .container-detail h1 {
     font-size: 2.5rem;
 }
+
+.nav-mobile {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 2rem;
+    gap: 20px;
+    font-weight: bold;
+    height: 56px;
+    border-bottom: 1px solid #ccc;
+}
+
+.nav-mobile img {
+    cursor: pointer;
+}
+
 
 
 .pika {
