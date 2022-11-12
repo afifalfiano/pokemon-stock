@@ -27,7 +27,7 @@ const Detail: React.FC = () => {
     return (
         <div className={styles['container-detail']}>
             <div className={styles.header}>
-                <div className={styles.previous} onClick={() => navigate('/')}>Back to Stock Pokemon</div>
+                <div className={styles.previous} onClick={() => navigate('/')}><img src="/assets/icons/previous.svg" alt='Back to' /> Stok Pokemon</div>
                 <button type='button'>Update Stock</button>
             </div>
             <div className={styles.pika}>
@@ -54,7 +54,7 @@ const Detail: React.FC = () => {
                 </div>
                 <div>
                     {detail?.history.map((item: any, index: number) => (
-                        <div className={styles['table-body']} key={index} onClick={() => navigate(`/detail/${item.name}`)}>
+                        <div className={styles['table-body']} key={index}>
                             <div>{item.waktu}</div>
                             <div>{item.kegiatan}</div>
                             <div>{item.catatan}</div>

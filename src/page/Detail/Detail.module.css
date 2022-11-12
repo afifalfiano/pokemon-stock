@@ -27,6 +27,9 @@
 
 .container-detail .header .previous {
     cursor: pointer;
+    display: flex;
+    justify-items: center;
+    align-items: center;
 }
 
 .container-detail .header button {
@@ -37,6 +40,7 @@
     border-radius: 4px;
     padding: 6px 12px;
     height: 36px;
+    cursor: pointer;
 }
 
 .table {
