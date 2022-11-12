@@ -1,0 +1,40 @@
+
+
+.container {
+    margin: 4rem 20rem;
+}
+
+.container h1 {
+    font-size: 2.5rem;
+}
+
+.table {
+    margin-top: 8px;
+    font-size: 14px;
+
+}
+
+.table .table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--black);
+    height: 48px;
+    font-weight: 500;
+}
+
+.table .table-body {
+    display: flex;
+    height: 48px;
+    cursor: pointer;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+
+}
+
+.table .table-body div:first-child {
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: capitalize;
+}
