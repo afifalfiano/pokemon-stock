@@ -8,6 +8,10 @@
   .container {
     margin: 2rem;
   }  
+
+  input[type="search"] {
+    width: 100% !important;
+  }
 }
 
 .container h1 {
