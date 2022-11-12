@@ -30,14 +30,16 @@ const Detail: React.FC = () => {
                 <div className={styles.previous} onClick={() => navigate('/')}>Back to Stock Pokemon</div>
                 <button type='button'>Update Stock</button>
             </div>
-            <h1 style={{textTransform: 'capitalize'}}>{name}</h1>
+            <div className={styles.pika}>
+                <h1 style={{textTransform: 'capitalize'}}>{name}</h1>
+            </div>
 
-            <div>
+            <div className={styles.stock}>
               <p>Sisa stok</p>
               <h2>{detail?.stok} pcs</h2>
             </div>
             
-            <div>
+            <div className={styles['history-stock']}>
               <p>Riwayat Stok</p>
               <p>Satuan stok dalam pcs</p>
             </div>

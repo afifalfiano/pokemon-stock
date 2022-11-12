@@ -8,6 +8,15 @@
     font-size: 2.5rem;
 }
 
+
+.pika {
+ margin: 8px 0 2.5rem 0;
+}
+
+.pika h1 {
+    margin: 0;
+}
+
 .container-detail .header {
     display: flex;
     justify-content: space-between;
@@ -42,7 +51,13 @@
     align-items: center;
     border-bottom: 1px solid var(--black);
     height: 48px;
-    font-weight: 500;
+    font-weight: 600;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.006em;
+    color: #333333;
 }
 
 .table .table-body {
@@ -51,6 +66,11 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #ccc;
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
 
 }
 
@@ -61,6 +81,60 @@
 }
 
 .table .table-body div:nth-child(4){
-    color: var(--primary);
+    color: #219653;
     font-weight: 500;
+}
+
+.stock {
+    margin: 2.5rem 0;
+}
+
+.stock p {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: -0.006em;
+    color: #333333;
+    margin: 0;
+}
+
+.stock h2 {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    letter-spacing: -0.021em;
+    color: #333333;
+    margin: 0;
+}
+
+.history-stock {
+    margin: 2.5rem 0 1rem 0;
+}
+
+.history-stock p:nth-child(1) {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.011em;
+    color: #333333;
+    margin: 0;
+}
+
+.history-stock p:nth-child(2) {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.006em;
+    color: #333333;
+    margin: 0;
 }
