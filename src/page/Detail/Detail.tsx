@@ -4,26 +4,26 @@
 
 import styles from './Detail.module.css';
 import { useNavigate, useParams } from "react-router-dom";
-import { useEffect, useReducer, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RenderModal } from '../../components/Modal/Modal';
 import { ModalActivity } from '../../components/Modal/ModalActivity';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectAllPokemon } from '../../store/pokemon/pokemonSlice';
 
-export interface DetailPokemon{
+export interface DetailPokemon {
 
 }
 
 const Detail: React.FC = () => {
     const navigate = useNavigate();
-    const {name} = useParams();
-    const [showModal, setShowModal] = useState(false)
+    const { name } = useParams();
+    const [showModal, setShowModal] = useState<any>(false)
     const [detail, setDetailPokemon] = useState<any>();
     const pokemon = useSelector(selectAllPokemon);
     useEffect(() => {
-      setDetailPokemon(pokemon.find((item: any) => item.name === name));
+        setDetailPokemon(pokemon.find((item: any) => item.name === name));
     }, [detail])
-    
+
 
     return (
         <div className={styles['container-detail']}>
@@ -32,17 +32,17 @@ const Detail: React.FC = () => {
                 <button type='button' onClick={() => setShowModal(true)}>Update Stock</button>
             </div>
             <div className={styles.pika}>
-                <h1 style={{textTransform: 'capitalize'}}>{name}</h1>
+                <h1 style={{ textTransform: 'capitalize' }}>{name}</h1>
             </div>
 
             <div className={styles.stock}>
-              <p>Sisa stok</p>
-              <h2>{detail?.stok} pcs</h2>
+                <p>Sisa stok</p>
+                <h2>{detail?.stok} pcs</h2>
             </div>
-            
+
             <div className={styles['history-stock']}>
-              <p>Riwayat Stok</p>
-              <p>Satuan stok dalam pcs</p>
+                <p>Riwayat Stok</p>
+                <p>Satuan stok dalam pcs</p>
             </div>
 
             <div className={styles.table}>
@@ -65,9 +65,9 @@ const Detail: React.FC = () => {
                     ))}
                 </div>
             </div>
-        <RenderModal>
-        {showModal && <ModalActivity onClose={setShowModal} detail={detail} title="add" />}
-        </RenderModal>
+            <RenderModal>
+                {showModal && <ModalActivity onClose={setShowModal} detail={detail} title="add" />}
+            </RenderModal>
         </div>
     )
 }

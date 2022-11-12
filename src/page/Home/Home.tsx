@@ -6,27 +6,25 @@ import { useNavigate } from 'react-router-dom';
 import styles from './Home.module.css';
 
 
-const Home: React.FC<any> = ({pokemon}) => {
+const Home: React.FC<any> = ({ pokemon }) => {
     const navigate = useNavigate();
     const search = useRef<any>('');
     const [data, setData] = useState(pokemon);
 
     const handleSearch = (e: any) => {
         search.current = e.target.value
-        console.log(search, 'log');
         const regex = new RegExp(search.current, 'ig');
         const pokemonFilter = data.filter((item: any) => item.name.match(regex));
         setData(pokemonFilter)
-        console.log(data, 'poke');
-        if(search.current.length === 0) {
+        if (search.current.length === 0) {
             setData(pokemon);
         }
-      };
+    };
 
     return (
         <div className={styles.container}>
             <h1>Stok Pokémon</h1>
-            
+
             <input type="search" ref={search} onChange={handleSearch} placeholder="Cari pokemon" />
             <div className={styles.table}>
                 <div className={styles['table-header']}>
