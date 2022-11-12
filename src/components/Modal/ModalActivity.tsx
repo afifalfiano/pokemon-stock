@@ -1,9 +1,12 @@
 import { useRef, useState } from "react"
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { newStock, updateOne } from "../../store/pokemon/pokemonSlice";
 import styles from "./ModalActivity.module.css"
 
 interface ModalProps {
     onClose: (showModal: boolean) => void,
+    detail: (any),
     // dataInput: (any),
 }
 
@@ -24,8 +27,18 @@ export const ModalActivity = (props: ModalProps) =>{
         setTotalLusin(12 * lusin.current);
     }
 
-    const onSubmitHandler = (body: any) => {
+    const dispatch = useDispatch();
+    const onSubmitHandler = () => {
         props.onClose(false);
+        dispatch(newStock({
+            totalPcs: totalPcs,
+            totalLusin: totalLusin,
+            totalStok: totalPcs + totalLusin,
+            stokSebelum: props.detail.stok,
+            catatan: '',
+            kegiatan: 'Update stok',
+            name: props.detail.name
+        }))
         if (!window.location.pathname.match(/confirmation/ig)) {
             navigate(window.location.pathname + '/confirmation');
         }

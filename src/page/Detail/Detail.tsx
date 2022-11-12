@@ -5,10 +5,10 @@
 import styles from './Detail.module.css';
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useReducer, useState } from 'react';
-import { pokemonReducer } from '../../reducers/pokemonReducer';
-import { dataDummy } from '../../dummy';
 import { RenderModal } from '../../components/Modal/Modal';
 import { ModalActivity } from '../../components/Modal/ModalActivity';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectAllPokemon } from '../../store/pokemon/pokemonSlice';
 
 export interface DetailPokemon{
 
@@ -17,10 +17,9 @@ export interface DetailPokemon{
 const Detail: React.FC = () => {
     const navigate = useNavigate();
     const {name} = useParams();
-    const [pokemon, dispatch] = useReducer(pokemonReducer, dataDummy);
+    const pokemon = useSelector(selectAllPokemon);
     const [detail, setDetailPokemon] = useState<any>();
     const [showModal, setShowModal] = useState(false)
-
     useEffect(() => {
       setDetailPokemon(pokemon.find((item: any) => item.name === name));
       console.log(detail, 'd');
@@ -52,7 +51,7 @@ const Detail: React.FC = () => {
                     <div>Waktu</div>
                     <div>Kegiatan</div>
                     <div>Catatan</div>
-                    <div>Jmlh</div>
+                    <div>Jumlah</div>
                     <div>Stok</div>
                 </div>
                 <div>
@@ -68,7 +67,7 @@ const Detail: React.FC = () => {
                 </div>
             </div>
         <RenderModal>
-        {showModal && <ModalActivity onClose={setShowModal}/>}
+        {showModal && <ModalActivity onClose={setShowModal} detail={detail} />}
         </RenderModal>
         </div>
     )

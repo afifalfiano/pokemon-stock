@@ -1,10 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
 
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { RenderModal } from '../../components/Modal/Modal';
-import { ModalActivity } from '../../components/Modal/ModalActivity';
 import styles from './Home.module.css';
 
 
@@ -12,16 +10,6 @@ const Home: React.FC<any> = ({pokemon}) => {
     const navigate = useNavigate();
     const search = useRef<any>('');
     const [data, setData] = useState(pokemon);
-
-    const fetchData = async () => {
-        const data = await fetch('https://pokeapi.co/api/v2/pokemon?limit=15&offset=0');
-        const json = await data.json();
-        console.log(json, 'json');
-        // dispatch({
-        //     type: 'init',
-        //     pokemon: json.results
-        // })
-    }
 
     const handleSearch = (e: any) => {
         search.current = e.target.value
@@ -34,14 +22,6 @@ const Home: React.FC<any> = ({pokemon}) => {
             setData(pokemon);
         }
       };
-
-    useEffect(() => {
-        try {
-            // fetchData();
-        } catch (error) {
-            throw new Error("Failed Get Data");
-        }
-    }, [search])
 
     return (
         <div className={styles.container}>

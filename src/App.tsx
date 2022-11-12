@@ -1,15 +1,16 @@
-import React, { lazy, Suspense, useReducer } from 'react';
-import logo from './logo.svg';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { lazy, Suspense, useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
-import { pokemonReducer } from './reducers/pokemonReducer';
-import { dataDummy } from './dummy';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectAllPokemon, setData } from './store/pokemon/pokemonSlice';
+import { useGet15DataMutation } from './store/pokemon/apiSlice';
 const Home = lazy(() => import('./page/Home/Home'));
 const Detail = lazy(() => import('./page/Detail/Detail'));
 const Confirmation = lazy(() => import('./page/Confirmation/Confirmation'));
 
 function App() {
-  const [pokemon, dispatch] = useReducer(pokemonReducer, dataDummy);
+  const pokemon= useSelector(selectAllPokemon);
   
   return (
     <Router>
