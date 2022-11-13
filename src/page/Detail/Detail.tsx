@@ -31,20 +31,20 @@ const Detail: React.FC = () => {
 
     return (
         <>
-        {viewport < 600 && <NavbarMobile navigate={navigate} />}
-        <div className={styles['container-detail']}>
-            {viewport >= 600 && <Navbar setShowModal={setShowModal} navigate={navigate} />}
-            <TitleDetail title="pokemon" name={name} />
-            {viewport < 600 && <ButtonStock  setShowModal={setShowModal} />}
-            <TitleDetail title="stock" stock={detail?.stok} />
-            <TitleDetail title="history-stock" />
+            {viewport < 600 && <NavbarMobile navigate={navigate} />}
+            <div className={styles['container-detail']}>
+                {viewport >= 600 && <Navbar setShowModal={setShowModal} navigate={navigate} />}
+                <TitleDetail title="pokemon" name={name} />
+                {viewport < 600 && <ButtonStock setShowModal={setShowModal} />}
+                <TitleDetail title="stock" stock={detail?.stok} />
+                <TitleDetail title="history-stock" />
 
-            {viewport >= 600 && <DataTable dataHeader={["Waktu", "Kegiatan", "Catatan", "Jumlah", "Stok"]} dataRow={detail?.history} title="detail-pokemon"/>}
-            {viewport >= 600 && detail?.history.length === 0 && <div className="notfound">Tidak ada riwayat transaksi...</div>}
-            {viewport < 600 && <DataTable dataHeader={["Waktu", "Jumlah", "Stok"]} dataRow={detail?.history} title="detail-pokemon-mobile"/>}
-            {viewport < 600 && detail?.history.length === 0 && <div className="notfound">Tidak ada riwayat transaksi...</div>}
-            <RenderModal>{showModal && <ModalActivity onClose={setShowModal} detail={detail} title="add" />}</RenderModal>
-        </div>
+                {viewport >= 600 && <DataTable dataHeader={["Waktu", "Kegiatan", "Catatan", "Jumlah", "Stok"]} dataRow={detail?.history} title="detail-pokemon" />}
+                {viewport >= 600 && detail?.history.length === 0 && <div className="notfound">Tidak ada riwayat transaksi...</div>}
+                {viewport < 600 && <DataTable dataHeader={["Waktu", "Jumlah", "Stok"]} dataRow={detail?.history} title="detail-pokemon-mobile" />}
+                {viewport < 600 && detail?.history.length === 0 && <div className="notfound">Tidak ada riwayat transaksi...</div>}
+                <RenderModal>{showModal && <ModalActivity onClose={setShowModal} detail={detail} title="add" />}</RenderModal>
+            </div>
         </>
     )
 }

@@ -93,8 +93,8 @@ const Confirmation = () => {
             </div>
 
             <div className={styles.button}>
-                <button type="button" className={styles.deletebtn} onClick={submitHandler}>Simpan</button>
-                <button onClick={() => navigate(-1)} type="button" className={styles.cancelbtn}>Batal</button>
+                <button type="button" onClick={submitHandler}>Simpan</button>
+                <button onClick={() => navigate(-1)} type="button" >Batal</button>
             </div>
 
             <RenderModal>

@@ -87,8 +87,8 @@ export const ModalActivity = (props: ModalProps) => {
                         </div>
                     </div>
                     <div className={styles.button}>
-                        <button type="button" onClick={onSubmitHandler} className={styles.deletebtn}>Simpan</button>
-                        <button type="button" onClick={() => props.onClose(false)} className={styles.cancelbtn}>Batal</button>
+                        <button type="button" onClick={onSubmitHandler}>Simpan</button>
+                        <button type="button" onClick={() => props.onClose(false)}>Batal</button>
                     </div>
                 </div>
             </form>
