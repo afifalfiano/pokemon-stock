@@ -3,7 +3,7 @@ import DataTable from '../../components/DataTable/DataTable';
 import Search from '../../components/Search/Search';
 import styles from './Home.module.css';
 
-const Home: React.FC<any> = ({ pokemon }) => {
+const Home: React.FC<any> = ({ pokemon = [] }) => {
     const search = useRef<any>('');
     const [data, setData] = useState(pokemon);
 
