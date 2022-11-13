@@ -11,7 +11,7 @@ const DataTableMobile: React.FC<any> = ({ dataRow = [] }) => {
                         <div>Stok</div>
                     </div>
                     <div>
-                        <div className={styles['table-body']} key={index}>
+                        <div className={`${styles['table-body']} ${styles['table-body-detail']}` } key={index}>
                             <div className={styles['table-body-mobile']}>
                                 <p>{item?.waktu_jam}</p>
                                 <p className={styles.activity}>{item.kegiatan}</p>

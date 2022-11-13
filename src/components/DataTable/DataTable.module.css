@@ -99,7 +99,7 @@
 }
 
 @media screen and (max-width: 1200px) {
-    .table-body {
+    .table-body-detail {
         height: auto !important;
     }
   }
