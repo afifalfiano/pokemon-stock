@@ -13,11 +13,3 @@
 .container h1 {
     font-size: 2.5rem;
 }
-
-.notfound {
-    text-align: center;
-    font-size: 14px;
-    margin: 1rem 0;
-    color: rgb(100, 100, 100);
-    font-weight: 500;
-}

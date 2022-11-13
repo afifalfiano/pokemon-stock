@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.header button {
+    color: var(--primary);
+    font-weight: bold;
+    background-color: var(--gray);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 6px 12px;
+    height: 36px;
+    cursor: pointer;
+}
+
+
+.previous {
+    cursor: pointer;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}

@@ -14,14 +14,55 @@
     font-weight: 500;
 }
 
+
 .table-body {
     display: flex;
     height: 48px;
-    cursor: pointer;
+    gap: 10px;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #ccc;
 
+}
+
+.table-body-fill, .table-header-detail div {
+    max-width: 200px;
+    width: 200px;
+}
+
+.table-body-fill {
+    height: 48px;
+    width: 200px;
+    max-width: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.table-header-detail-mobile div:nth-child(1) {
+    max-width: 150px;
+    width: 150px;
+}
+
+.table-header-detail div:nth-child(4),  .table-header-detail div:nth-child(5) {
+    text-align: right;
+}
+
+.table-body-fill:nth-child(2){
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.table-body-fill:nth-child(4), .table-body-mobile-info:nth-child(2){
+    color: #219653;
+    font-weight: 500;
+    text-align: right;
+    justify-content: flex-end;
+}
+
+.table-body-fill:nth-child(5){
+    text-align: right;
+    justify-content: flex-end;
 }
 
 .pokename {
@@ -29,3 +70,36 @@
     font-weight: 700;
     text-transform: capitalize;
 }
+
+.table-body-mobile {
+    margin: 5px 0;
+    height: 100px !important;
+    width: 150px;
+    max-width: 150px;
+    display: flex !important;
+    align-items: flex-start !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+}
+
+.table-body-mobile p {
+    margin: 5px 0;
+}
+
+.table-body-mobile-info{
+    width: auto !important;
+}
+
+
+
+.table-body-mobile .activity {
+    color: var(--primary);
+    font-size: 16px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 1200px) {
+    .table-body {
+        height: auto !important;
+    }
+  }

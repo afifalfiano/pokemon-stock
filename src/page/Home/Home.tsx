@@ -1,11 +1,7 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-
-
 import { useRef, useState } from 'react';
 import DataTable from '../../components/DataTable/DataTable';
 import Search from '../../components/Search/Search';
 import styles from './Home.module.css';
-
 
 const Home: React.FC<any> = ({ pokemon }) => {
     const search = useRef<any>('');
@@ -26,7 +22,7 @@ const Home: React.FC<any> = ({ pokemon }) => {
             <h1>Stok Pokémon</h1>
             <Search placeholder="Cari pokemon" type="search" handleSearch={handleSearch} search={search}  />
             <DataTable dataHeader={["Nama", "Stok"]} dataRow={data} title="home"/>
-            {data.length === 0 && <div className={styles.notfound}>Pokemon tidak ditemukan...</div>}
+            {data.length === 0 && <div className="notfound">Pokemon tidak ditemukan...</div>}
         </div>
     )
 }

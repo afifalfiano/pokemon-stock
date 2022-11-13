@@ -10,10 +10,11 @@ import { ModalActivity } from '../../components/Modal/ModalActivity';
 import { useSelector } from 'react-redux';
 import { selectAllPokemon } from '../../store/pokemon/pokemonSlice';
 import { selectViewport } from '../../store/screen/screenSlice';
-
-export interface DetailPokemon {
-
-}
+import NavbarMobile from '../../components/Navbar/NavbarMobile';
+import Navbar from '../../components/Navbar/Navbar';
+import ButtonStock from '../../components/Button/ButtonStock';
+import DataTable from '../../components/DataTable/DataTable';
+import TitleDetail from './TitleDetail';
 
 const Detail: React.FC = () => {
     const navigate = useNavigate();
@@ -30,96 +31,19 @@ const Detail: React.FC = () => {
 
     return (
         <>
-            {
-                viewport < 600 && (
-                    <div className={styles['nav-mobile']}>
-                    <img src="/assets/icons/previous.svg" alt='Back to' onClick={() => navigate('/')}/>
-                    <div className={styles.previous}>Stok Pokemon</div>
-                    </div>
-                )
-            }
+        {viewport < 600 && <NavbarMobile navigate={navigate} />}
         <div className={styles['container-detail']}>
-            {
-                viewport >= 600 && (
-                <div className={styles.header}>
-                    <div className={styles.previous} onClick={() => navigate('/')}><img src="/assets/icons/previous.svg" alt='Back to' /> Stok Pokemon</div>
-                    <button type='button' onClick={() => setShowModal(true)}>Update Stock</button>
-                </div>
-                )
-            }
-            <div className={styles.pika}>
-                <h1 style={{ textTransform: 'capitalize' }}>{name}</h1>
-            </div>
+            {viewport >= 600 && <Navbar setShowModal={setShowModal} navigate={navigate} />}
+            <TitleDetail title="pokemon" name={name} />
+            {viewport < 600 && <ButtonStock  setShowModal={setShowModal} />}
+            <TitleDetail title="stock" stock={detail?.stok} />
+            <TitleDetail title="history-stock" />
 
-            {
-                viewport < 600 && (
-                    <div className={styles.header}>
-                    <button type='button' onClick={() => setShowModal(true)}>Update Stock</button>
-                    </div>
-                )
-            }
-
-            <div className={styles.stock}>
-                <p>Sisa stok</p>
-                <h2>{detail?.stok} pcs</h2>
-            </div>
-
-            <div className={styles['history-stock']}>
-                <p>Riwayat Stok</p>
-                <p>Satuan stok dalam pcs</p>
-            </div>
-
-            
-            {viewport >= 600 && (
-            <div className={styles.table}>
-            <div className={styles['table-header']}>
-                <div>Waktu</div>
-                <div>Kegiatan</div>
-                <div>Catatan</div>
-                <div>Jumlah</div>
-                <div>Stok</div>
-            </div>
-            <div>
-                {detail?.history.map((item: any, index: number) => (
-                    <div className={styles['table-body']} key={index}>
-                        <div>{item?.waktu}</div>
-                        <div>{item.kegiatan}</div>
-                        <div>{item.catatan}</div>
-                        <div>{item.jumlah === 0 ? item.jumlah : '+' + item.jumlah}</div>
-                        <div>{item.total} pcs</div>
-                    </div>
-                ))}
-                </div>
-            </div>
-            )}
-
-            {viewport < 600 && (
-                            <div className={styles.table}>
-                            {detail?.history.map((item: any, index: number) => (
-                                <>
-                                <div className={styles['table-header']}>
-                                    <div>{item?.waktu}</div>
-                                    <div>Jumlah</div>
-                                    <div>Stok</div>
-                                </div>
-                                <div>
-                                    <div className={styles['table-body']} key={index}>
-                                        <div className={styles['table-body-mobile']}>
-                                            <p>{item?.waktu_jam}</p>
-                                            <p className={styles.activity}>{item.kegiatan}</p>
-                                            <p>"{item.catatan}"</p>
-                                        </div>
-                                        <div>{item?.jumlah === 0 ? item?.jumlah : '+' + item?.jumlah}</div>
-                                        <div>{item?.total} pcs</div>
-                                    </div>
-                                </div>
-                                </>
-                                ))}
-                            </div>
-            )}
-            <RenderModal>
-                {showModal && <ModalActivity onClose={setShowModal} detail={detail} title="add" />}
-            </RenderModal>
+            {viewport >= 600 && <DataTable dataHeader={["Waktu", "Kegiatan", "Catatan", "Jumlah", "Stok"]} dataRow={detail?.history} title="detail-pokemon"/>}
+            {viewport >= 600 && detail?.history.length === 0 && <div className="notfound">Tidak ada riwayat transaksi...</div>}
+            {viewport < 600 && <DataTable dataHeader={["Waktu", "Jumlah", "Stok"]} dataRow={detail?.history} title="detail-pokemon-mobile"/>}
+            {viewport < 600 && detail?.history.length === 0 && <div className="notfound">Tidak ada riwayat transaksi...</div>}
+            <RenderModal>{showModal && <ModalActivity onClose={setShowModal} detail={detail} title="add" />}</RenderModal>
         </div>
         </>
     )
