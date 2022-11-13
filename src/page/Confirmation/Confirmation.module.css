@@ -42,6 +42,11 @@
     font-weight: 500;
 }
 
+
+.notes {
+  margin-top: 40px;
+}
+
 .notes textarea {
     font-family: 'Nunito Sans';
     font-style: normal;
@@ -132,10 +137,6 @@
     align-items: center;
   }
 
-
-  .compare-detail-sistem {
-  }
-
   .compare-detail-sistem p, .compare-detail-final p, .compare h1, .compare p, .compare-detail h1 {
     margin: 0;
   }
@@ -144,4 +145,22 @@
     display: flex;
     gap: 20px;
     flex-direction: row;
+  }
+
+  .table .table-header div {
+    max-width: 200px;
+    width: 200px;
+  }
+
+ .table .table-header div:nth-child(3)  {
+    text-align: right;
+  }
+
+  .table .table-body div {
+    max-width: 200px;
+    width: 200px;
+  }
+
+  .table .table-body div:nth-child(3) {
+    text-align: right;
   }

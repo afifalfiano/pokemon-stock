@@ -73,19 +73,19 @@ const Confirmation = () => {
                     <div>Jumlah</div>
                 </div>
                 <div className={styles['table-body']}>
-                    <div>Hasil update stok</div>
+                    <div><strong>Hasil update stok</strong></div>
                     <div>{data.totalPcs} pcs, {data.totalLusin / 12} lusin</div>
                     <div>{data.stokSebelum + data.totalStok} pcs  <img src="/assets/icons/edit.svg" style={{ cursor: 'pointer' }} alt="Edit" onClick={() => setShowModal(true)} /></div>
                 </div>
                 <div className={styles['table-body']}>
-                    <div>Total hasil stok</div>
+                    <div><strong>Total hasil stok</strong></div>
                     <div></div>
                     <div><strong>{data.stokSebelum + data.totalStok} pcs</strong></div>
                 </div>
             </div>
 
             <div className={styles.notes}>
-                <p>Catatan</p>
+                <p><strong>Catatan</strong></p>
                 <textarea name="" id="" cols={10} rows={3} placeholder='Contoh: stock awal' ref={notes} onChange={handleNotes}>
 
                 </textarea>
