@@ -1,0 +1,18 @@
+input[type="search"] {
+    margin-top: 2.625rem;
+    width: 400px;
+    height: 36px;
+    background: #FFFFFF;
+    padding-left: 40px;
+    border: 1px solid #CCCCCC;
+    box-shadow: inset 0px 2px 4px rgba(51, 51, 51, 0.15);
+    border-radius: 4px;
+    background: transparent url("/public/assets/icons/search.svg") no-repeat 9px center;
+}
+
+
+@media screen and (max-width: 1200px) {
+    input[type="search"] {
+        width: 100% !important;
+    }
+}
