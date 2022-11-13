@@ -69,7 +69,7 @@ export const ModalActivity = (props: ModalProps) => {
                             <div>Jumlah</div>
                             <div>Stok</div>
                         </div>
-                        <div>
+                        <div className={styles['table-body-wrap']}>
                             <div className={styles['table-body']}>
                                 <div><strong>Pcs</strong></div>
                                 <div>1 x <input type="number" name="" id="" ref={pcs} onChange={inputPcsHandler} value={pcs.current} /> = </div>
@@ -81,7 +81,7 @@ export const ModalActivity = (props: ModalProps) => {
                                 <div>{totalLusin}</div>
                             </div>
                             <div className={styles['table-body']}>
-                                <div><strong>Total stok</strong> (dalam pcs)</div>
+                                <div style={{'width': '200px', 'maxWidth': '200px'}}><strong>Total stok</strong> (dalam pcs)</div>
                                 <div><strong>{totalPcs + totalLusin}</strong></div>
                             </div>
                         </div>

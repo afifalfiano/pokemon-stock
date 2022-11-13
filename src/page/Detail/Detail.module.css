@@ -104,6 +104,15 @@
     color: #333333;
 }
 
+.table .table-header div {
+    width: 200px;
+    max-width: 200px;
+}
+
+.table .table-header div:nth-child(5), .table .table-header div:nth-child(4)  {
+    text-align: right;
+}
+
 .table .table-body {
     display: flex;
     height: 48px;
@@ -118,6 +127,14 @@
 
 }
 
+.table .table-body div {
+    height: 48px;
+    width: 200px;
+    max-width: 200px;
+    display: flex;
+    align-items: center;
+}
+
 .table .table-body div:nth-child(2){
     color: var(--primary);
     font-weight: 700;
@@ -127,6 +144,13 @@
 .table .table-body div:nth-child(4){
     color: #219653;
     font-weight: 500;
+    text-align: right;
+    justify-content: flex-end;
+}
+
+.table .table-body div:nth-child(5){
+    text-align: right;
+    justify-content: flex-end;
 }
 
 .stock {
