@@ -15,6 +15,13 @@
 
     .table-body-mobile {
         margin: 5px 0;
+        height: 100px !important;
+        width: 200px;
+        max-width: 200px;
+        display: flex !important;
+        align-items: flex-start !important;
+        flex-direction: column !important;
+        justify-content: center !important;
     }
 
     .table-body-mobile p {

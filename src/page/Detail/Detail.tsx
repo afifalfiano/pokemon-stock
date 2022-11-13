@@ -82,7 +82,7 @@ const Detail: React.FC = () => {
             <div>
                 {detail?.history.map((item: any, index: number) => (
                     <div className={styles['table-body']} key={index}>
-                        <div>{new Date(item.waktu).toLocaleString('id-ID', { hour12: false })}</div>
+                        <div>{item?.waktu}</div>
                         <div>{item.kegiatan}</div>
                         <div>{item.catatan}</div>
                         <div>{item.jumlah === 0 ? item.jumlah : '+' + item.jumlah}</div>
@@ -98,14 +98,14 @@ const Detail: React.FC = () => {
                             {detail?.history.map((item: any, index: number) => (
                                 <>
                                 <div className={styles['table-header']}>
-                                    <div>{new Date(item.waktu).toLocaleDateString('id-ID')}</div>
+                                    <div>{item?.waktu}</div>
                                     <div>Jumlah</div>
                                     <div>Stok</div>
                                 </div>
                                 <div>
                                     <div className={styles['table-body']} key={index}>
                                         <div className={styles['table-body-mobile']}>
-                                            <p>{new Date(item?.waktu).toLocaleTimeString('id-ID')}</p>
+                                            <p>{item?.waktu_jam}</p>
                                             <p className={styles.activity}>{item.kegiatan}</p>
                                             <p>"{item.catatan}"</p>
                                         </div>
