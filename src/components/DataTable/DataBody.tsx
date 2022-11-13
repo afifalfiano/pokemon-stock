@@ -23,18 +23,6 @@ const DataBody: React.FC<any> = ({ data = [], title }) => {
                     <div className={styles['table-body-fill']}>{item.total} pcs</div>
                 </div>
             ))}
-
-            {title === 'detail-pokemon-mobile' && data.map((item: any, index: number) => (
-                <div className={`${styles['table-body']}`} key={index}>
-                    <div className={styles['table-body-mobile']}>
-                        <p>{item?.waktu_jam}</p>
-                        <p className={styles.activity}>{item.kegiatan}</p>
-                        <p>"{item.catatan}"</p>
-                    </div>
-                    <div className={styles['table-body-mobile-info']}>{item?.jumlah === 0 ? item?.jumlah : '+' + item?.jumlah}</div>
-                    <div className={styles['table-body-mobile-info']}>{item?.total} pcs</div>
-                </div>
-            ))}
         </div>
     )
 }
