@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import { useRef } from 'react';
 import Input from './Input';
 
 describe('renders component input', () => {
