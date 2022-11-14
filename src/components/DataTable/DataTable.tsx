@@ -6,7 +6,7 @@ import DataTableMobile from './DataTableMobile';
 
 const DataTable: React.FC<any> = ({dataHeader, dataRow, title}) => {
     return (
-    <div className={styles.table}>
+    <div className={styles.table} data-testid="data-table" >
         {title !== 'detail-pokemon-mobile' && (
             <><DataHeader data={dataHeader} title={title} /><DataBody data={dataRow} title={title} /></>
         )}

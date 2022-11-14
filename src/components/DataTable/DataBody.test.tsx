@@ -27,7 +27,6 @@ describe('renders component data body', () => {
     const index = linkElement.children.length - 1;
     const dataList = linkElement.children[index].children;
     expect(dataList[0].textContent?.split(' ')[0]).toEqual(new Date().toLocaleDateString('id-ID', {year:"numeric",month:"2-digit", day:"2-digit"}).split(' ')[0]);
-    console.log(dataList[1].textContent, 'log');
     expect(dataList[1].textContent).toEqual("Stok awal");
     expect(dataList[2].textContent).toEqual("Stok awal");
     expect(dataList[3].textContent).toEqual("+10");
