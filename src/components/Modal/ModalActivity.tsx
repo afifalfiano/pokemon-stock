@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { newStock, selectNewStock } from "../../store/pokemon/pokemonSlice";
+import Button from "../Button/Button";
 import styles from "./ModalActivity.module.css"
 
 interface ModalProps {
@@ -11,7 +12,7 @@ interface ModalProps {
     title: string,
 }
 
-export const ModalActivity = (props: ModalProps) => {
+export const ModalActivity: React.FC<any> = ({onClose , detail, title}) => {
     const edit = useSelector(selectNewStock);
     const pcs = useRef<any>();
     const lusin = useRef<any>();
@@ -20,7 +21,7 @@ export const ModalActivity = (props: ModalProps) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (props.title === 'edit') {
+        if (title === 'edit') {
             pcs.current = edit.totalPcs;
             lusin.current = edit.totalLusin;
             setTotalPcs(edit.totalPcs);
@@ -42,15 +43,15 @@ export const ModalActivity = (props: ModalProps) => {
 
     const dispatch = useDispatch();
     const onSubmitHandler = () => {
-        props.onClose(false);
+        onClose(false);
         dispatch(newStock({
             totalPcs: totalPcs,
             totalLusin: totalLusin,
             totalStok: totalPcs + totalLusin,
-            stokSebelum: props.detail.stok,
+            stokSebelum: detail.stok,
             catatan: '',
             kegiatan: 'Update stok',
-            name: props.detail.name
+            name: detail.name
         }))
         if (!window.location.pathname.match(/confirmation/ig)) {
             navigate(window.location.pathname + '/confirmation');
@@ -87,8 +88,8 @@ export const ModalActivity = (props: ModalProps) => {
                         </div>
                     </div>
                     <div className={styles.button}>
-                        <button type="button" onClick={onSubmitHandler}>Simpan</button>
-                        <button type="button" onClick={() => props.onClose(false)}>Batal</button>
+                        <Button title="Simpan" onSubmitHandler={onSubmitHandler}/>
+                        <Button title="Batal" onClose={() => onClose(false)} />
                     </div>
                 </div>
             </form>

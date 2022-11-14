@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import Button from '../../components/Button/Button';
 import { RenderModal } from '../../components/Modal/Modal';
 import { ModalActivity } from '../../components/Modal/ModalActivity';
 import { newStock, selectAllPokemon, selectNewStock, updateOne } from '../../store/pokemon/pokemonSlice';
@@ -24,7 +25,7 @@ const Confirmation = () => {
         notes.current = e.target.value;
     }
 
-    const submitHandler = () => {
+    const onSubmitHandler = () => {
         dispatch(newStock({
             ...data, catatan: notes.current
         }))
@@ -93,8 +94,8 @@ const Confirmation = () => {
             </div>
 
             <div className={styles.button}>
-                <button type="button" onClick={submitHandler}>Simpan</button>
-                <button onClick={() => navigate(-1)} type="button" >Batal</button>
+                <Button title="Simpan" onSubmitHandler={onSubmitHandler}/>
+                <Button title="Batal" onClose={() => navigate(-1)} />
             </div>
 
             <RenderModal>
