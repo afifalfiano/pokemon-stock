@@ -7,7 +7,7 @@ jest.mock('react-router-dom', () => ({
    ...jest.requireActual('react-router-dom') as any,
   useNavigate: () => mockedUsedNavigate,
 }));
-describe('renders component data header', () => {
+describe('renders component data table', () => {
 
  it('should not render list anything either on header or body' , () => {
     render(<DataTable dataRow={[]} dataHeader={[]} title="home" />);
