@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import { RenderModal } from '../../components/Modal/Modal';
 import { ModalActivity } from '../../components/Modal/ModalActivity';
+import Textarea from '../../components/Textarea/Textarea';
 import { newStock, selectAllPokemon, selectNewStock, updateOne } from '../../store/pokemon/pokemonSlice';
 import styles from './Confirmation.module.css';
 const Confirmation = () => {
@@ -88,9 +89,7 @@ const Confirmation = () => {
 
             <div className={styles.notes}>
                 <p><strong>Catatan</strong></p>
-                <textarea name="" id="" cols={10} rows={3} placeholder='Contoh: stock awal' ref={notes} onChange={handleNotes}>
-
-                </textarea>
+                <Textarea cols={10} rows={3} placeholder='Contoh: stock awal' ref={notes} onChange={handleNotes}/>
             </div>
 
             <div className={styles.button}>
