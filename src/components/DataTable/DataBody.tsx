@@ -7,15 +7,15 @@ const DataBody: React.FC<any> = ({ data = [], title }) => {
     const navigate = useNavigate();
 
     return (
-        <div>
+        <div data-testid="table-body-wrap">
             {title === 'home' && data.map((item: any, index: number) => (
-                <div className={styles['table-body']} key={index} onClick={() => navigate(`/detail/${item.name}`)} style={{ cursor: 'pointer' }}>
+                <div className={styles['table-body']} key={index} onClick={() => navigate(`/detail/${item.name}`)} style={{ cursor: 'pointer' }} data-testid="table-body">
                     <div className={styles.pokename}>{item.name}</div>
                     <div>{item.stok} pcs</div>
                 </div>
             ))}
             {title === 'detail-pokemon' && data.map((item: any, index: number) => (
-                <div className={styles['table-body']} key={index}>
+                <div className={styles['table-body']} key={index} data-testid="table-body">
                     <div className={styles['table-body-fill']}>{item?.waktu} {item?.waktu_jam}</div>
                     <div className={styles['table-body-fill']}>{item.kegiatan}</div>
                     <div className={styles['table-body-fill']}>{item.catatan}</div>
