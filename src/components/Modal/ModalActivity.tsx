@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { newStock, selectNewStock } from "../../store/pokemon/pokemonSlice";
 import Button from "../Button/Button";
+import Input from "../Input/Input";
 import styles from "./ModalActivity.module.css"
 
 interface ModalProps {
@@ -73,12 +74,12 @@ export const ModalActivity: React.FC<any> = ({onClose , detail, title}) => {
                         <div className={styles['table-body-wrap']}>
                             <div className={styles['table-body']}>
                                 <div><strong>Pcs</strong></div>
-                                <div>1 x <input type="number" name="" id="" ref={pcs} onChange={inputPcsHandler} value={pcs.current} /> = </div>
+                                <div>1 x <Input type="number" ref={pcs} onChange={inputPcsHandler} value={pcs.current} /> = </div>
                                 <div>{totalPcs}</div>
                             </div>
                             <div className={styles['table-body']}>
                                 <div><strong>Lusin</strong></div>
-                                <div>12 x <input type="number" name="" id="" ref={lusin} onChange={inputLusinHandler} value={lusin.current} /> = </div>
+                                <div>12 x <Input type="number" ref={lusin} onChange={inputLusinHandler} value={lusin.current} /> = </div>
                                 <div>{totalLusin}</div>
                             </div>
                             <div className={styles['table-body']}>
